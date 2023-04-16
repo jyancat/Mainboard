@@ -49,7 +49,7 @@ are not connected.
 IPEX 20879-040E connector used to interface to an eDP display.  Note that there are signals
 defined for both USB 2.0 and I2C touchscreens.  There is a PWM interface to control backlight
 brightness, but the display currently used on the Framework Laptop converts that to a DC LED
-control.
+control.  Note that pin 1 is on the left when looking at the receptacle on the Mainboard.
 
 | Pin | Signal      | Description            |
 |-----|-------------|------------------------|
@@ -228,3 +228,94 @@ as "JST SH", and has a 1.0 mm pitch. The same connector is used for the Speakers
 | 2   | FAN_SPEED |
 | 3   | FAN_PWM   |
 | 4   | GND       |
+
+# Daughterboard pinouts
+
+Some connectors don't reside on the Mainboard itself, but their pinout could still be of use.
+
+## Fingerprint Reader
+
+The Fingerprint Reader resides on the Input Cover and connects though the Touchpad.
+All of its signals are directly passed to the Input Cover Interface described above.
+The connector used is Kyocera 046809610110846+.
+
+| Pin | Signal      | Notes                        |
+|-----|-------------|------------------------------|
+| 1   | VBUS        | 5V                           |
+| 2   | USB_P       | USB data                     |
+| 3   | USB_N       | USB data                     |
+| 4   | GND         |                              |
+| 5   | FPR_CTRL    | Output (mask switch events)  |
+| 6   | SWITCH      | Open collector output        |
+| 7   | FPR_LED_W   |                              |
+| 8   | FPR_LED_G   |                              |
+| 9   | FPR_LED_R   |                              |
+| 10  | FPR_LED_COM | 5V                           |
+
+## Webcam
+
+This is the ZIF connector that is on the Webcam Module itself.  The connector is
+Kyocera 046809612110846+.
+
+| Pin | Signal  | Type         | Voltage | Notes                               |
+|-----|---------|--------------|---------|-------------------------------------|
+| 1   | GND     |              |         |                                     |
+| 2   | USB_DP  | Input/Output | 3v3     | USB 2.0                             |
+| 3   | USB_DM  | Input/Output | 3v3     | USB 2.0                             |
+| 4   | 3V3     |              |         |                                     |
+| 5   | CAM_SW  | Output       | 3v3     | State of camera privacy switch      |
+| 6   | MIC_CLK | Input        | 1v8     | Microphone PDM clock                |
+| 7   | MIC_DAT | Output       | 1v8     | Microphone PDM data (2 channel L/R) |
+| 8   | MIC_SW  | Output       | 3v3     | State of microphone privacy switch  |
+| 9   | INT_ALS | Output       | 3v3     | Interrupt from ALS                  |
+| 10  | SCL_ALS | Input        | 3v3     |                                     |
+| 11  | SDA_ALS | Input/Output | 3v3     |                                     |
+| 12  | GND     |              |         |                                     |
+
+## Display
+
+This is the eDP connector that is on the BOE NE135FBM-N41 LCD.  The connector is
+IPEX 20455-040E.
+
+| Pin | Signal      | Notes                  |
+|-----|-------------|------------------------|
+| 1   | NC          |                        |
+| 2   | GND         | Signal ground          |
+| 3   | EDP_TXN_3   |                        |
+| 4   | EDP_TXP_3   |                        |
+| 5   | GND         | Signal ground          |
+| 6   | EDP_TXN_2   |                        |
+| 7   | EDP_TXP_2   |                        |
+| 8   | GND         | Signal ground          |
+| 9   | EDP_TXN_1   |                        |
+| 10  | EDP_TXP_1   |                        |
+| 11  | GND         | Signal ground          |
+| 12  | EDP_TXN_0   |                        |
+| 13  | EDP_TXP_0   |                        |
+| 14  | GND         | Signal ground          |
+| 15  | AUXP        |                        |
+| 16  | AUXN        |                        |
+| 17  | GND         | Signal ground          |
+| 18  | 3V_EDP      | 3.3V typical           |
+| 19  | 3V_EDP      | 3.3V typical           |
+| 20  | 3V_EDP      | 3.3V typical           |
+| 21  | 3V_EDP      | 3.3V typical           |
+| 22  | SELF_TEST   | Self test enable       |
+| 23  | GND         | Digital ground         |
+| 24  | GND         | Digital ground         |
+| 25  | GND         | Digital ground         |
+| 26  | GND         | Digital ground         |
+| 27  | EDP_HPD     | Hot plug detect output |
+| 28  | GND         | Backlight ground       |
+| 29  | GND         | Backlight ground       |
+| 30  | GND         | Backlight ground       |
+| 31  | GND         | Backlight ground       |
+| 32  | BLK_OFF_N   | 3.3V input             |
+| 33  | BLK_PWM_LCD | 200Hz to 2kHz, 3.3V    |
+| 34  | NC          |                        |
+| 35  | NC          |                        |
+| 36  | BL_POWER    | 5V-21V                 |
+| 37  | BL_POWER    | 5V-21V                 |
+| 38  | BL_POWER    | 5V-21V                 |
+| 39  | BL_POWER    | 5V-21V                 |
+| 40  | NC          |                        |
